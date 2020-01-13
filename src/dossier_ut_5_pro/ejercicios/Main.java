@@ -5,16 +5,19 @@
  */
 package dossier_ut_5_pro.ejercicios;
 
+import java.util.Scanner;
+
 /**
  *
  * @author francisco a domínguez iceta
  */
 public class Main {
     public static void main(String[] args) {
+       /* 
         Nodo<Integer> inicio = new Nodo<>();
-        inicio.dato = 3;
+        inicio.add(1, new Nodo().); 
         Nodo<Integer> dato1 = new Nodo<>();
-        dato1.dato = 9;
+        dato1.add(9,dato2);
         inicio.next = dato1;
         Nodo<Integer> dato2 = new Nodo<>();
         dato2.dato = 23;
@@ -28,5 +31,6 @@ public class Main {
             System.out.println(recorrer.dato);
             recorrer = recorrer.next;
         }
+       */
     }
 }

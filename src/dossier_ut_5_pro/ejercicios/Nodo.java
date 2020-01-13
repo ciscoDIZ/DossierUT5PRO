@@ -5,11 +5,22 @@
  */
 package dossier_ut_5_pro.ejercicios;
 
+
+
 /**
  *
  * @author francisco a domínguez iceta
  */
 public class Nodo<T> {
-    T dato;
-    Nodo next;
+    private T dato;
+    private Nodo next;
+    
+    public boolean add(T t, Nodo n){
+        boolean retorno = false;
+        if(t != null){
+            dato = t;
+            retorno = true;
+        }
+        return retorno;
+    }
 }
