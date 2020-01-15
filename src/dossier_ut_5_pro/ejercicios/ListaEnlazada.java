@@ -7,32 +7,98 @@ package dossier_ut_5_pro.ejercicios;
 
 /**
  *
- * @author francisco a domínguez iceta
+ * @author tote
  */
 public class ListaEnlazada<T> {
-    private class Nodo<T> {
-        T dato;
-        Nodo next;
-    }
+    class Nodo {
+        private Integer data;
+        private Nodo next;
 
-    Nodo<T> head;
-    Nodo<T> dato;
+       
+        
+       
+    }
     
-    public boolean add(T t){
+    private Nodo head;
+    private Nodo tail;
+
+    public ListaEnlazada() {
+        head = new Nodo();
+        tail = new Nodo();
+    }
+    
+    
+    
+    public boolean add(int d){
+        Nodo it = head;
         boolean retorno = false;
-        if(head == null){
-            head.dato = t;
-            head.next = null;
-            retorno = true;
-        }else if(dato == null){
-            dato.dato = t;
-            head.next = dato;
-            retorno = true;
+        if (head.data == null){
+           head.data = d;
+           head.next = new Nodo();
+           retorno = true;
         }else{
-            dato.dato = t;
-            retorno = true;
+            while (it.next != null && !retorno) {
+                it = it.next;
+                if(it.data == null){
+                    it.data = d;
+                    it.next = new Nodo();
+                    retorno = true;
+                }
+               
+            }
+          
+            
+           /* while(it.next != null && !retorno){
+                
+                if(it.data > d){
+                    if(it.equals(head)){
+                        Nodo n = new Nodo();
+                        n.data = d;
+                        n.next = head;
+                        head = n;
+                        retorno = true;
+                    }else{
+                        Nodo n = new Nodo();
+                        n.data = d;
+                        n.next = it;
+                        it = n;
+                        retorno = true;
+                    }
+                     it = it.next;
+                }else{
+                    it = it.next;
+                    if(it.data == null){
+                        it.data = d;
+                        it.next = new Nodo();
+                        retorno = true;
+                    }
+                } 
+            }*/
+        }
+        ordenar();
+        return retorno;
+    }
+    private void ordenar(){
+        Nodo retorno = head;
+        while (retorno.next != null && retorno.next.data != null){
+            if(retorno.data > retorno.next.data){
+                if(retorno.equals(head)){
+                    
+                }
+            }
+            retorno = retorno.next;
+        }
+    }
+    @Override
+    public String toString() {
+        String retorno = "";
+        Nodo it = head;
+        while (it.next != null) {            
+            retorno += it.data+" ";
+            it = it.next;
         }
         return retorno;
     }
+    
     
 }
