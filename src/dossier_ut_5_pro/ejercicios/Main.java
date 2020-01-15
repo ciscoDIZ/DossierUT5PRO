@@ -32,5 +32,10 @@ public class Main {
             recorrer = recorrer.next;
         }
        */
+       ListaEnlazada le = new ListaEnlazada();
+       le.add(9);
+       le.add(10);
+       le.add(20);
+       System.out.println(le);
     }
 }
