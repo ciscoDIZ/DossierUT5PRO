@@ -85,10 +85,12 @@ public class ListaEnlazada<T> {
                         /*Nodo n = helper;
                         n.next = helper;
                         n.data = it.data;*/
-                        Nodo n = head;
-                       
+                        Nodo n = new Nodo();
+                        n.data = helper.data;
+                        n.next = it.next;
+                        head = it;
+                        head.next = n;
                         
-                        helper = helper.next;
                         retorno = true;
                     }
                         
@@ -97,12 +99,12 @@ public class ListaEnlazada<T> {
                     if(helper.data > it.data){
                         //System.out.println("Entra en ordenar() (como cuerpo) | helper.data= "+helper.data+" it.data = "+it.data);
                         retorno = true;
-                        helper = helper.next;
+                        
                     }
                     
                 }
             
-                
+                helper = helper.next;
             }
             
             
