@@ -34,8 +34,8 @@ public class Main {
        */
        ListaEnlazada le = new ListaEnlazada();
        le.add(9);
-       le.add(10);
-       le.add(20);
+       le.add(1);
+       le.add(0);
        System.out.println(le);
     }
 }
