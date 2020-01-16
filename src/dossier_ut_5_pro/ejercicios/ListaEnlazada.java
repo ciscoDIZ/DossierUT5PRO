@@ -16,13 +16,12 @@ public class ListaEnlazada<T> {
     }
     
     private Nodo head;
-    private Nodo tail;
 
     public ListaEnlazada() {
         head = new Nodo();
-        tail = new Nodo();
     } 
     
+    @SuppressWarnings("empty-statement")
     public boolean add(int d){
         boolean retorno = false;
         if (head.data == null){
@@ -40,36 +39,8 @@ public class ListaEnlazada<T> {
                     
                 }
             }
-            ordenar();
-            
-           /* while(it.next != null && !retorno){
-                
-                if(it.data > d){
-                    if(it.equals(head)){
-                        Nodo n = new Nodo();
-                        n.data = d;
-                        n.next = head;
-                        head = n;
-                        retorno = true;
-                    }else{
-                        Nodo n = new Nodo();
-                        n.data = d;
-                        n.next = it;
-                        it = n;
-                        retorno = true;
-                    }
-                     it = it.next;
-                }else{
-                    it = it.next;
-                    if(it.data == null){
-                        it.data = d;
-                        it.next = new Nodo();
-                        retorno = true;
-                    }
-                } 
-            }*/
+            while (ordenar());
         }
-        
         return retorno;
     }
     private boolean ordenar(){
@@ -81,36 +52,25 @@ public class ListaEnlazada<T> {
             if(it.next != null ){
                 if(helper.equals(head)){
                     if(helper.data > it.data){
-                        //System.out.println("Entra en ordenar() (como head) | helper.data= "+helper.data+" it.data = "+it.data);
-                        /*Nodo n = helper;
-                        n.next = helper;
-                        n.data = it.data;*/
                         Nodo n = new Nodo();
                         n.data = helper.data;
                         n.next = it.next;
                         head = it;
                         head.next = n;
-                        
                         retorno = true;
                     }
-                        
-                    
                 }else{
                     if(helper.data > it.data){
-                        //System.out.println("Entra en ordenar() (como cuerpo) | helper.data= "+helper.data+" it.data = "+it.data);
+                        Integer i = helper.data;
+                        helper.data = it.data;
+                        it.data = i;
                         retorno = true;
-                        
-                    }
-                    
+                    }                    
                 }
-            
                 helper = helper.next;
-            }
-            
-            
-            
+            } 
         }
-        return true;
+        return retorno;
     }
     @Override
     public String toString() {
@@ -122,6 +82,4 @@ public class ListaEnlazada<T> {
         }
         return retorno;
     }
-    
-    
 }

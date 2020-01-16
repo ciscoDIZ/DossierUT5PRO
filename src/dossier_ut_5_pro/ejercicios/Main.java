@@ -36,6 +36,9 @@ public class Main {
        le.add(9);
        le.add(1);
        le.add(0);
+       le.add(2);
+       le.add(19);
+       le.add(6);
        System.out.println(le);
     }
 }
