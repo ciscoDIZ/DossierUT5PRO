@@ -33,6 +33,8 @@ public class Par {
             Double d = (Double)o;
             d = d + 4;
             ret = (Object)d;
+        }else if(o instanceof String){
+            ret = (String)o;
         }else{
             throw new Exception("Operacion no permitida");
         }
@@ -57,6 +59,7 @@ public class Par {
         try {
             o = operacion((Object)i);
             o1 = operacion((Object)3.2);
+            o = operacion("aaaaaaa");
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -66,7 +69,9 @@ public class Par {
         if(o1 instanceof Double){
             System.out.println((Double)o1);
         }
-        
+        if(o instanceof String){
+            System.out.println((String)o);
+        }
                 
     }
     

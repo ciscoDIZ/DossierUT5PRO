@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dossier_ut_5_pro.ejercicios;
+package dossier_ut_5_pro.ejercicios.listaEnlazada.ListaEnlazadaV2;
+
+
 
 /**
  *
@@ -35,8 +37,7 @@ public class ListaEnlazada<T> {
                 if(it.data == null){
                     it.data = d;
                     it.next = new Nodo();
-                    retorno = true;
-                    
+                    retorno = true;   
                 }
             }
             while (ordenar());

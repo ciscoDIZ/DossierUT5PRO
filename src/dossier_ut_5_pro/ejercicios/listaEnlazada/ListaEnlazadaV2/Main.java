@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dossier_ut_5_pro.ejercicios;
+package dossier_ut_5_pro.ejercicios.listaEnlazada.ListaEnlazadaV2;
 
+import dossier_ut_5_pro.ejercicios.listaEnlazada.*;
 import java.util.Scanner;
 
 /**
@@ -38,7 +39,7 @@ public class Main {
        le.add(0);
        le.add(2);
        le.add(19);
-       le.add(6);
+       le.add(-6);
        System.out.println(le);
     }
 }

@@ -9,40 +9,122 @@ package dossier_ut_5_pro.ejercicios.listaEnlazada;
  *
  * @author tote
  */
-public class ListaEnlazada<T> {
+public class ListaEnlazada {
     class Nodo {
         private Integer data;
         private Nodo next;
     }
     
     private Nodo head;
-
+    private Integer size;
     public ListaEnlazada() {
         head = new Nodo();
+        size = 0;
     } 
     
-    @SuppressWarnings("empty-statement")
-    public boolean add(int d){
-        boolean retorno = false;
+    
+    public boolean sortedAdd(int d){
+        boolean ret = false;
         if (head.data == null){
            head.data = d;
            head.next = new Nodo();
-           retorno = true;
+           ret = true;
+           size++;
         }else{
             Nodo it = head;
-            while (it.next != null && !retorno) {
+            while (it.next != null && !ret) {
                 it = it.next;
                 if(it.data == null){
                     it.data = d;
                     it.next = new Nodo();
-                    retorno = true;   
+                    ret = true;
+                    size++;
                 }
             }
-            while (ordenar());
+            sort();
         }
-        return retorno;
+        return ret;
     }
-    private boolean ordenar(){
+    
+    public boolean uniqueAdd(Integer d){
+        boolean ret = false;
+        if(!contains(d)){
+            ret = add(d);
+        }
+        return ret;
+    }
+    public int size(){
+        return size;
+    }
+    public boolean uniqueSortedAdd(Integer d){
+        boolean ret = false;
+        if(!contains(d)){
+            ret = sortedAdd(d);
+        }
+        return ret;
+    }
+    
+    public boolean add(Integer d){
+        boolean ret = false;
+        if (head.data == null){
+           head.data = d;
+           head.next = new Nodo();
+           ret = true;
+        }else{
+            Nodo it = head;
+            while (it.next != null && !ret) {
+                it = it.next;
+                if(it.data == null){
+                    it.data = d;
+                    it.next = new Nodo();
+                    ret = true;   
+                }
+            }
+        }
+        return ret;
+    }
+    
+    public boolean contains(Integer d){
+        Nodo it = head;
+        boolean ret = false;
+        while(it.next != null){
+            if(it.data.equals(d)){
+                ret = true;
+            }
+            it=it.next;
+        }
+        return ret;
+    }
+    
+    public boolean remove(Integer d){
+        boolean ret = false;
+        Nodo it = head;
+        Nodo helper = it;
+        while(it.next != null && !ret){
+            it = it.next;
+            if(it.data.equals(d)){
+                helper.next = it.next;
+                ret = true;
+                size--;
+            }
+            
+            helper = helper.next;
+        }
+        return ret;
+    }
+    
+    public boolean removeAll(Integer d){
+        boolean ret = false;
+        while(contains(d)){
+            ret = remove(d);
+        }
+        return ret;
+    }
+    public void removeAll(){
+       head.data = null;
+       head.next = null;
+    }
+    private boolean exchange(){
         Nodo it = head;
         Nodo helper = it;
         boolean retorno = false;
@@ -71,6 +153,23 @@ public class ListaEnlazada<T> {
         }
         return retorno;
     }
+    @SuppressWarnings("empty-statement")
+    public void sort(){
+        while (exchange());
+    }
+    
+    public Integer[] toArray(){
+        Integer[] ret = new Integer[size];
+        Nodo it = head;
+        int i = 0;
+        while (it.next != null){
+            ret[i] = it.data;
+            i++;
+            it = it.next;
+        }
+        return ret;
+    }
+    
     @Override
     public String toString() {
         String retorno = "";
