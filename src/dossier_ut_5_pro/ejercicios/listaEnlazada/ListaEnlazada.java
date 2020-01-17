@@ -50,6 +50,7 @@ public class ListaEnlazada {
         boolean ret = false;
         if(!contains(d)){
             ret = add(d);
+            size++;
         }
         return ret;
     }
@@ -60,6 +61,7 @@ public class ListaEnlazada {
         boolean ret = false;
         if(!contains(d)){
             ret = sortedAdd(d);
+            size++;
         }
         return ret;
     }
@@ -70,6 +72,7 @@ public class ListaEnlazada {
            head.data = d;
            head.next = new Nodo();
            ret = true;
+           size++;
         }else{
             Nodo it = head;
             while (it.next != null && !ret) {
@@ -77,7 +80,8 @@ public class ListaEnlazada {
                 if(it.data == null){
                     it.data = d;
                     it.next = new Nodo();
-                    ret = true;   
+                    ret = true;
+                    size++;
                 }
             }
         }
@@ -102,10 +106,17 @@ public class ListaEnlazada {
         Nodo helper = it;
         while(it.next != null && !ret){
             it = it.next;
-            if(it.data.equals(d)){
-                helper.next = it.next;
-                ret = true;
-                size--;
+            if(helper.data.equals(d)){
+                if(helper.equals(head)){
+                    head = head.next;
+                    ret = true;
+                    size--;
+                }else{
+                    helper.next = it.next;
+                    ret = true;
+                    size--;
+                }
+                
             }
             
             helper = helper.next;

@@ -5,7 +5,7 @@
  */
 package dossier_ut_5_pro.ejercicios.listaEnlazada;
 
-import java.util.Scanner;
+
 
 /**
  *
@@ -37,8 +37,9 @@ public class Main {
         le.sortedAdd(0);
         System.out.println(le);
         System.out.println(le.size());
-        //le.remove(0);
+        le.remove(0);
         System.out.println(le);
+        System.out.println(le.size());
         Integer[] array = le.toArray();
         for (Integer integer : array) {
             System.out.println(integer);
