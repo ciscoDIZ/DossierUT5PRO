@@ -44,6 +44,8 @@ public class Main {
         for (Integer integer : array) {
             System.out.println(integer);
         }
-        
+        while(le.next()){
+            System.out.println(le.get()*5);
+        } 
     }
 }

@@ -61,7 +61,9 @@ public class ListaEnlazada {
         boolean ret = false;
         if(!contains(d)){
             ret = sortedAdd(d);
-            size++;
+            size++;          
+            
+          
         }
         return ret;
     }
@@ -105,21 +107,19 @@ public class ListaEnlazada {
         Nodo it = head;
         Nodo helper = it;
         while(it.next != null && !ret){
-            it = it.next;
-            if(helper.data.equals(d)){
-                if(helper.equals(head)){
-                    head = head.next;
-                    ret = true;
-                    size--;
-                }else{
-                    helper.next = it.next;
-                    ret = true;
-                    size--;
-                }
-                
+            if(head.data.equals(d)){
+                head = head.next;
+                ret = true;
+                size--;
+            }else{
+                it = it.next;
+            if(it.data.equals(d)){
+                helper.next = it.next;
+                ret = true;
+                size--;  
             }
-            
             helper = helper.next;
+        }  
         }
         return ret;
     }
@@ -134,6 +134,7 @@ public class ListaEnlazada {
     public void removeAll(){
        head.data = null;
        head.next = null;
+       size = 0;
     }
     private boolean exchange(){
         Nodo it = head;
@@ -180,7 +181,24 @@ public class ListaEnlazada {
         }
         return ret;
     }
-    
+    public Integer get(){
+        Integer  ret = null;
+        if(head.data != null){
+            ret = head.data;
+            remove(ret);
+        }
+        return ret;
+    }
+    public boolean next(){
+        boolean ret = false;
+        if(head.next != null){
+            ret = true;
+        }
+        return ret;
+    }
+    public void mostrar(){
+       
+    }
     @Override
     public String toString() {
         String retorno = "";
