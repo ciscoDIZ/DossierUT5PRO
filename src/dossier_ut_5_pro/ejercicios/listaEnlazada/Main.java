@@ -37,6 +37,8 @@ public class Main {
         le.sortedAdd(0);
         System.out.println(le);
         System.out.println(le.size());
+        //le.remove(0);
+        System.out.println(le);
         Integer[] array = le.toArray();
         for (Integer integer : array) {
             System.out.println(integer);
