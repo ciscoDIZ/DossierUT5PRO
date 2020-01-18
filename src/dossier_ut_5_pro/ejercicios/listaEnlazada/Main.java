@@ -47,5 +47,9 @@ public class Main {
         while(le.next()){
             System.out.println(le.get()*5);
         } 
+        le.addAll(array);
+        while (le.next()) {            
+            System.out.println(le.get());
+        }
     }
 }
