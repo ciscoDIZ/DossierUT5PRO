@@ -10,18 +10,17 @@ package dossier_ut_5_pro.ejercicios.listaEnlazada;
  * @author tote
  */
 public class ListaEnlazada {
-    class Nodo {
-        private Integer data;
-        private Nodo next;
-    }
-    
     private Nodo head;
     private Integer size;
     public ListaEnlazada() {
         head = new Nodo();
         size = 0;
     } 
-    
+    private class Nodo {
+        private Integer data;
+        private Nodo next;
+       
+    }
     
     public boolean sortedAdd(int d){
         boolean ret = false;
@@ -90,6 +89,14 @@ public class ListaEnlazada {
         return ret;
     }
     
+    public boolean addAll(Integer[] d){
+        boolean ret = false;
+        for (Integer integer : d) {
+            ret = add(integer);
+        }
+        return ret;
+    }
+    
     public boolean contains(Integer d){
         Nodo it = head;
         boolean ret = false;
@@ -154,6 +161,7 @@ public class ListaEnlazada {
                     }
                 }else{
                     if(helper.data > it.data){
+                       
                         Integer i = helper.data;
                         helper.data = it.data;
                         it.data = i;
@@ -197,7 +205,10 @@ public class ListaEnlazada {
         return ret;
     }
     public void mostrar(){
-       
+        Nodo it = head;
+        while (it.next != null) {            
+            System.out.println(it.data);
+        }
     }
     @Override
     public String toString() {
