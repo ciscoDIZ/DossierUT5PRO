@@ -61,8 +61,6 @@ public class ListaEnlazada {
         if(!contains(d)){
             ret = sortedAdd(d);
             size++;          
-            
-          
         }
         return ret;
     }
@@ -151,7 +149,7 @@ public class ListaEnlazada {
             it = it.next;
             if(it.next != null ){
                 if(helper.equals(head)){
-                    if(helper.data > it.data){
+                    if(head.data > it.data){
                         Nodo n = new Nodo();
                         n.data = helper.data;
                         n.next = it.next;
@@ -161,7 +159,12 @@ public class ListaEnlazada {
                     }
                 }else{
                     if(helper.data > it.data){
-                       
+                      /*  Nodo n = new Nodo();
+                        n.data = helper.data;
+                        n.next = it.next;
+                        helper = it;
+                        helper.next = n;
+                        retorno = true;*/
                         Integer i = helper.data;
                         helper.data = it.data;
                         it.data = i;
