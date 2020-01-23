@@ -33,14 +33,9 @@ public class Main {
         le.add(14);
         le.add(1);
         le.add(99);
-        System.out.println(le);
-        le.sortedAdd(0);
-        System.out.println(le);
-        System.out.println(le.size());
-        le.remove(0);
-        System.out.println(le);
-        System.out.println(le.size());
-        Integer[] array = le.toArray();
+   
+       
+        /*Integer[] array = le.toArray();
         for (Integer integer : array) {
             System.out.println(integer);
         }
@@ -50,6 +45,8 @@ public class Main {
         le.addAll(array);
         while (le.next()) {            
             System.out.println(le.get());
-        }
+        }*/
+        System.out.println("Pos 0");
+        System.out.println(le.get(2));
     }
 }

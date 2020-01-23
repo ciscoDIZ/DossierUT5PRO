@@ -194,12 +194,25 @@ public class ListaEnlazada {
         }
         return ret;
     }
-    public Integer get(){
+    public Integer getStack(){
         Integer  ret = null;
         if(head.data != null){
             ret = head.data;
             remove(ret);
         }
+        return ret;
+    }
+    public Integer get(int p){
+        Integer ret = null;
+        Nodo it = head;
+        while(it.next != null && ret == null){
+            if(posActual == p){
+                ret = it.data;
+            }
+            it = it.next;
+            posActual++;
+        }
+        posActual = 0;
         return ret;
     }
     public boolean next(){
