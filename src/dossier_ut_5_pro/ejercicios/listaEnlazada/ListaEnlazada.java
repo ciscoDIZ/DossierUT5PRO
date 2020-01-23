@@ -12,9 +12,11 @@ package dossier_ut_5_pro.ejercicios.listaEnlazada;
 public class ListaEnlazada {
     private Nodo head;
     private Integer size;
+    private Integer posActual;
     public ListaEnlazada() {
         head = new Nodo();
         size = 0;
+        posActual = 0;
     } 
     private class Nodo {
         private Integer data;
