@@ -166,8 +166,7 @@ public class ListaEnlazada {
                         n.next = it.next;
                         head = it;
                         head.next = n;
-                        
-                       retorno = true;
+                        retorno = true;
                     }
                 } else {
                     if (helper.data > it.data) {
