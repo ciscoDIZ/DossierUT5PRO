@@ -14,7 +14,7 @@ package dossier_ut_5_pro.ejercicios.listaEnlazada;
 public class Main {
     public static void main(String[] args) {
         ListaEnlazada le = new ListaEnlazada();
-        le.sortedAdd(9);
+        /*le.sortedAdd(9);
         le.sortedAdd(1);
         le.sortedAdd(0);
         le.sortedAdd(2);
@@ -49,6 +49,12 @@ public class Main {
         } 
         le.addAll(array);
         while (le.next()) {            
+            System.out.println(le.get());
+        }*/
+        le.sortedAdd(10);
+        le.sortedAdd(0);
+        le.sortedAdd(1);
+        while (le.next()){
             System.out.println(le.get());
         }
     }

@@ -11,18 +11,19 @@ package dossier_ut_5_pro.ejercicios.listaEnlazada;
  */
 public class ListaEnlazada {
 
-    private Nodo head;
+    private Node head;
     private Integer size;
+    priv
 
     public ListaEnlazada() {
-        head = new Nodo();
+        head = new Node();
         size = 0;
     }
 
-    private class Nodo {
+    private class Node {
 
         private Integer data;
-        private Nodo next;
+        private Node next;
 
     }
 
@@ -30,16 +31,16 @@ public class ListaEnlazada {
         boolean ret = false;
         if (head.data == null) {
             head.data = d;
-            head.next = new Nodo();
+            head.next = new Node();
             ret = true;
             size++;
         } else {
-            Nodo it = head;
+            Node it = head;
             while (it.next != null && !ret) {
                 it = it.next;
                 if (it.data == null) {
                     it.data = d;
-                    it.next = new Nodo();
+                    it.next = new Node();
                     ret = true;
                     size++;
                 }
@@ -75,16 +76,16 @@ public class ListaEnlazada {
         boolean ret = false;
         if (head.data == null) {
             head.data = d;
-            head.next = new Nodo();
+            head.next = new Node();
             ret = true;
             size++;
         } else {
-            Nodo it = head;
+            Node it = head;
             while (it.next != null && !ret) {
                 it = it.next;
                 if (it.data == null) {
                     it.data = d;
-                    it.next = new Nodo();
+                    it.next = new Node();
                     ret = true;
                     size++;
                 }
@@ -102,7 +103,7 @@ public class ListaEnlazada {
     }
 
     public boolean contains(Integer d) {
-        Nodo it = head;
+        Node it = head;
         boolean ret = false;
         while (it.next != null) {
             if (it.data.equals(d)) {
@@ -115,8 +116,8 @@ public class ListaEnlazada {
 
     public boolean remove(Integer d) {
         boolean ret = false;
-        Nodo it = head;
-        Nodo helper = it;
+        Node it = head;
+        Node helper = it;
         while (it.next != null && !ret) {
             if (head.data.equals(d)) {
                 head = head.next;
@@ -150,35 +151,35 @@ public class ListaEnlazada {
     }
 
     private boolean exchange() {
-        Nodo it = head;
-        Nodo helper = it;
+        Node it = head;
+        Node helper = it;
+        
         boolean retorno = false;
-        while (it.next != null && !retorno) {
+        while (it.next != null) {
             it = it.next;
             if (it.next != null) {
                 if (helper.equals(head)) {
                     if (head.data > it.data) {
-                        Nodo n = new Nodo();
+                        Node n = new Node();
                         n.data = helper.data;
                         n.next = it.next;
                         head = it;
                         head.next = n;
-                        retorno = true;
+                        
+                       retorno = true;
                     }
                 } else {
                     if (helper.data > it.data) {
-                        /*  Nodo n = new Nodo();
-                        n.data = helper.data;
-                        n.next = it.next;
-                        helper = it;
-                        helper.next = n;
-                        retorno = true;*/
+                      
+                        
+                 
                         Integer i = helper.data;
                         helper.data = it.data;
                         it.data = i;
                         retorno = true;
                     }
                 }
+                
                 helper = helper.next;
             }
         }
@@ -192,7 +193,7 @@ public class ListaEnlazada {
 
     public Integer[] toArray() {
         Integer[] ret = new Integer[size];
-        Nodo it = head;
+        Node it = head;
         int i = 0;
         while (it.next != null) {
             ret[i] = it.data;
@@ -220,7 +221,7 @@ public class ListaEnlazada {
     }
 
     public void mostrar() {
-        Nodo it = head;
+        Node it = head;
         while (it.next != null) {
             System.out.println(it.data);
         }
@@ -229,7 +230,7 @@ public class ListaEnlazada {
     @Override
     public String toString() {
         String retorno = "";
-        Nodo it = head;
+        Node it = head;
         while (it.next != null) {
             retorno += it.data + " ";
             it = it.next;
