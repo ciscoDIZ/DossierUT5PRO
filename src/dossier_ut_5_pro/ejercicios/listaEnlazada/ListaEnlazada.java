@@ -154,7 +154,6 @@ public class ListaEnlazada {
     private boolean exchange() {
         Node it = head;
         Node helper = it;
-        
         boolean retorno = false;
         while (it.next != null) {
             it = it.next;
@@ -173,13 +172,11 @@ public class ListaEnlazada {
                         Node n = new Node();
                         n.data = helper.data;
                         n.next = it.next;
-                        getNodeByPos(getPos(helper)-1).next = it;
+                        getNodeByPos(getPos(helper) -1).next = it;
                         it.next = n;
                         retorno = true;
-                       
                     }
                 }
-                
                 helper = helper.next;
             }
         }
@@ -222,6 +219,7 @@ public class ListaEnlazada {
         Node it = head;
         while (it.next != null) {
             System.out.println(it.data);
+            it = it.next;
         }
     }
 
@@ -229,7 +227,7 @@ public class ListaEnlazada {
         Node it = head;
         Integer ret = null;
         while (it.next != null) {            
-            if (p== actualPos){
+            if (p == actualPos){
                 ret = it.data;
             }
             actualPos++;

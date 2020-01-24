@@ -42,7 +42,13 @@ public class Main {
         while (le.next()) {            
             System.out.println(le.getStack()+5);
         }
-        System.out.println("Pos 0");
-        System.out.println(le.get(2));
+        
+        le.addAll(array);
+        
+        System.out.println("Pos 2");
+        System.out.println(le.get(3));
+        le.removeAll();
+        le.add(1);
+        le.mostrar();
     }
 }
