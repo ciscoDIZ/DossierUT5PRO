@@ -17,6 +17,7 @@ public class ListaEnlazada {
 
     public ListaEnlazada() {
         head = new Node();
+        actualPos = 0;
         size = 0;
     }
 
@@ -170,13 +171,13 @@ public class ListaEnlazada {
                     }
                 } else {
                     if (helper.data > it.data) {
-                      
-                        
-                 
-                        Integer i = helper.data;
-                        helper.data = it.data;
-                        it.data = i;
+                        Node n = new Node();
+                        n.data = helper.data;
+                        n.next = it.next;
+                        getNodeByPos(getPos(helper)-1).next = it;
+                        it.next = n;
                         retorno = true;
+                       
                     }
                 }
                 
@@ -202,23 +203,21 @@ public class ListaEnlazada {
         }
         return ret;
     }
-
-    public Integer get() {
-        Integer ret = null;
-        if (head.data != null) {
+    public Integer getStack(){
+        Integer  ret = null;
+        if(head.data != null){
             ret = head.data;
             remove(ret);
         }
         return ret;
     }
-
-    public boolean next() {
+     public boolean next(){
         boolean ret = false;
-        if (head.next != null) {
+        if(head.next != null){
             ret = true;
         }
         return ret;
-    }
+    }   
 
     public void mostrar() {
         Node it = head;
@@ -227,6 +226,45 @@ public class ListaEnlazada {
         }
     }
 
+    public Integer get(int p){
+        Node it = head;
+        Integer ret = null;
+        while (it.next != null) {            
+            if (p== actualPos){
+                ret = it.data;
+            }
+            actualPos++;
+            it = it.next; 
+        }
+        actualPos = 0;
+        return ret;
+    }
+    private Node getNodeByPos(int p){
+        Node ret = null;
+        Node it = head;
+        while (it.next != null) {            
+            if(getPos(it).equals(p)){
+                ret = it;
+            }
+            it = it.next;
+        }
+        return ret;
+    }
+    
+    private Integer getPos(Node n){
+        Node it = head;
+        Integer ret = null;
+        while (it.next != null) {
+            if(it.equals(n)){
+                ret = actualPos;
+            }
+            it = it.next;
+            actualPos++;
+        }
+        actualPos = 0;
+        return ret;
+    }
+    
     @Override
     public String toString() {
         String retorno = "";
