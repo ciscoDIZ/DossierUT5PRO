@@ -13,7 +13,7 @@ public class ListaEnlazada {
 
     private Node head;
     private Integer size;
-    priv
+    private Integer actualPos;
 
     public ListaEnlazada() {
         head = new Node();
