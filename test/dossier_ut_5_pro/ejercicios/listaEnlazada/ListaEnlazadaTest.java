@@ -83,8 +83,6 @@ public class ListaEnlazadaTest {
         int result = instance.size();
         assertEquals(expResult, result);
         System.out.println(result);
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -101,8 +99,6 @@ public class ListaEnlazadaTest {
         boolean result = instance.uniqueSortedAdd(d);
         assertEquals(expResult, result);
         System.out.println(result);
-        // TODO review the generated test code and remove the default call to fail.
-       
     }
 
     /**
@@ -117,8 +113,6 @@ public class ListaEnlazadaTest {
         boolean result = instance.add(d);
         assertEquals(expResult, result);
         System.out.println(result);
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -133,7 +127,6 @@ public class ListaEnlazadaTest {
         boolean result = instance.addAll(d);
         assertEquals(expResult, result);
         System.out.println(result);
-        // TODO review the generated test code and remove the default call to fail.
     }
 
     /**
@@ -149,7 +142,6 @@ public class ListaEnlazadaTest {
         boolean result = instance.contains(d);
         assertEquals(expResult, result);
         System.out.println(result);
-        // TODO review the generated test code and remove the default call to fail.
     }
 
     /**
@@ -165,7 +157,7 @@ public class ListaEnlazadaTest {
         boolean result = instance.remove(d);
         assertEquals(expResult, result);
         System.out.println(result);
-        // TODO review the generated test code and remove the default call to fail.
+        
         
     }
 
@@ -184,7 +176,7 @@ public class ListaEnlazadaTest {
         boolean result = instance.removeAll(d);
         assertEquals(expResult, result);
         System.out.println(result);
-        // TODO review the generated test code and remove the default call to fail.
+        
     }
 
     /**
@@ -200,8 +192,6 @@ public class ListaEnlazadaTest {
         boolean result = instance.next();
         assertEquals(expResult, result);
         System.out.println(result);
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -227,8 +217,6 @@ public class ListaEnlazadaTest {
         }
         instance.mostrar();
         assertEquals(expResult, resulut);
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -270,8 +258,6 @@ public class ListaEnlazadaTest {
         boolean expResult = true;
         boolean result = instance.next();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-       
     }
 
     /**
@@ -282,9 +268,7 @@ public class ListaEnlazadaTest {
         System.out.println("mostrar");
         ListaEnlazada instance = new ListaEnlazada();
         instance.addAll(contArray(10));
-        instance.mostrar();
-        // TODO review the generated test code and remove the default call to fail.
-        
+        instance.mostrar(); 
     }
 
     /**
@@ -299,8 +283,6 @@ public class ListaEnlazadaTest {
         Integer expResult = 0;
         Integer result = instance.get(p);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -316,7 +298,6 @@ public class ListaEnlazadaTest {
         String expResult = "1 2 3 ";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
     }
     
 }
