@@ -5,27 +5,31 @@
  */
 package dossier_ut_5_pro.practicas.practica13;
 
-import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
  *
- * @author Francisco A Domínguez Iceta <toteskuu@gmail.com>
+ * @author tote
  */
-public class Main {
+public class MainV2 {
 
     public static void main(String[] args) {
+        Queue q = new Queue(50);
+        Integer opt;
         Scanner sc = new Scanner(System.in);
         boolean salir = false;
-        Integer opt = null;
-        LinkedList<Customer> lk = new LinkedList<>();
         System.out.println("1) atender cliente\n2)agregar cliente\n3) ver estado cola"
                 + "\n4) fin");
-        while(!salir){
-        opt = sc.nextInt();
+        while (!salir) {
+            opt = sc.nextInt();
             switch (opt) {
                 case 1:
-                    System.out.println(lk.poll());
+                    Customer cust = q.poll();
+                    if(cust != null){
+                        System.out.println(cust.nombre + " " + cust.apellidos);
+                    }else{
+                        System.out.println("\nLista vacia\n");
+                    }
                     break;
                 case 2:
                     sc.nextLine();
@@ -36,24 +40,24 @@ public class Main {
                     System.out.println("Intro edad ");
                     Integer edad = sc.nextInt();
                     Customer c = new Customer(nombre, apellidos, edad);
-                    if (!c.esMenorEdad()) {
-                        lk.push(c);
+                    if (q.push(c)) {
+                        System.out.println("Cliente añadido");
+                    } else {
+                        System.out.println("Atención, cliente menor de edad."
+                                + "\nNo añadido a la cola");
                     }
                     break;
                 case 3:
-                    for (int i = 0; i < lk.size(); i++) {
-                        System.out.println(lk.peek());
-
-                    }
-
+                    System.out.println(q.peek());
                     break;
                 case 4:
-                    salir=true;
+                    salir = true;
                     break;
                 default:
                     throw new AssertionError();
             }
+            System.out.println("1) atender cliente\n2)agregar cliente\n3) ver estado cola"
+                    + "\n4) fin");
         }
-
     }
 }

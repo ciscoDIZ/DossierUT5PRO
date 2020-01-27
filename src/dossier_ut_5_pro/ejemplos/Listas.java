@@ -6,6 +6,7 @@
 package dossier_ut_5_pro.ejemplos;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Random;
 
 /**
@@ -17,6 +18,8 @@ public class Listas {
     public static void main(String[] args) {
         Random rnd = new Random();
         ArrayList<Integer> al = new ArrayList<>(10);
+        LinkedList<Integer> lk = new LinkedList<>();
+        
         for (int i = 0; i < 8; i++) {
             al.add(rnd.nextInt(100));
             al.sort((o1, o2) -> o1 - o2);
