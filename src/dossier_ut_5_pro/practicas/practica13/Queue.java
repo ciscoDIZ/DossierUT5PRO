@@ -20,7 +20,6 @@ public class Queue {
     public boolean push(Customer c) {
         boolean ret = false;
         if (customers[customers.length - 1] == null) {
-
             int i = 0;
             while (!ret && !c.esMenorEdad()) {
                 if (customers[i % customers.length] == null) {
