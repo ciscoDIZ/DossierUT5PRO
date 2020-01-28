@@ -30,9 +30,12 @@ public class Pila<T> {
         }
         return ret;
     }
-    public T poll(){
-        T t =(T)array[next-1];
-        next--;
+    public T pop(){
+        T t = null;
+        if(next > 0){
+            t =(T)array[next];
+            next--;
+        }
         return t;
 
     }
