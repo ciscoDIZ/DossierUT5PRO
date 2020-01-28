@@ -11,28 +11,28 @@ package dossier_ut_5_pro.ejercicios.pila;
  */
 public class Pila<T> {
     final int SIZE;
-    int siguiente;
+    int next;
     Object[] array;
 
     public Pila(int SIZE) {
         this.SIZE = SIZE;
         array = new Object[SIZE];
-        siguiente = 0;
+        next = 0;
     }
     
     public boolean push(T d){
         boolean ret = false;
         int i = 0;
-        if(siguiente < array.length){
-            array[siguiente] = d;
-            siguiente++;
+        if(next < array.length){
+            array[next] = d;
+            next++;
             ret = true;
         }
         return ret;
     }
     public T poll(){
-        T t =(T)array[siguiente-1];
-        siguiente--;
+        T t =(T)array[next-1];
+        next--;
         return t;
 
     }
