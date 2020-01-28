@@ -8,6 +8,7 @@ package dossier_ut_5_pro.ejercicios.listaEnlazada.ListaEnlazadaV2;
 /**
  *
  * @author tote
+ * @param <T>
  */
 public interface Ordenable<T> {
     public Integer compareTo(T n) throws Exception;

@@ -18,16 +18,33 @@ public class ListaEnlazada<T> {
 
         @Override
         public Integer compareTo(Node n) {
-            Integer ret;
+            Integer ret=null;
             if(n.data instanceof Integer){
                 ret = (Integer)this.data - (Integer)n.data;
-            }else{
-                ret = null;
             }
             return ret;
         }
         
-        
+        /*private Integer sortString(String s, int pos){
+            Integer ret;
+            String actual = (String)this.data;
+            if(actual.length() <= s.length()){
+                if( actual.charAt(pos) - s.charAt(pos) < 0 
+                        || pos > actual.length()){
+                    ret =  actual.charAt(pos) - s.charAt(pos);
+                }else{
+                    ret = sortString(s, pos+1);
+                }
+            }else{
+                if( actual.charAt(pos) - s.charAt(pos) < 0 
+                        || pos > s.length()){
+                    ret =  actual.charAt(pos) - s.charAt(pos);
+                }else{
+                    ret = sortString(s, pos+1);
+                }
+            }
+            return ret;
+        }*/
     }
 
     private Node head;
@@ -40,11 +57,11 @@ public class ListaEnlazada<T> {
         size = 0;
     }
 
-    /*public boolean sortedAdd(int d) {
+    public boolean sortedAdd(T d) {
         boolean ret = add(d);
         sort();
         return ret;
-    }*/
+    }
 
     public boolean uniqueAdd(T d) {
         boolean ret = false;
@@ -58,8 +75,8 @@ public class ListaEnlazada<T> {
     public int size() {
         return size;
     }
-/*
-    public boolean uniqueSortedAdd(Integer d) {
+
+    public boolean uniqueSortedAdd(T d) {
         boolean ret = false;
         if (!contains(d)) {
             ret = sortedAdd(d);
@@ -67,7 +84,6 @@ public class ListaEnlazada<T> {
         }
         return ret;
     }
-*/
     public boolean add(T d) {
         boolean ret = false;
         if (head.data == null) {
@@ -92,8 +108,8 @@ public class ListaEnlazada<T> {
 
     public boolean addAll(Object[] d) {
         boolean ret = false;
-        for (Object integer : d) {
-            ret = add((T)integer);
+        for (Object object : d) {
+            ret = add((T)object);
         }
         return ret;
     }
@@ -101,7 +117,7 @@ public class ListaEnlazada<T> {
     public boolean contains(T d) {
         Node it = head;
         boolean ret = false;
-        while (it.next != null) {
+        while (it.next != null && !ret) {
             if (it.data.equals(d)) {
                 ret = true;
             }
