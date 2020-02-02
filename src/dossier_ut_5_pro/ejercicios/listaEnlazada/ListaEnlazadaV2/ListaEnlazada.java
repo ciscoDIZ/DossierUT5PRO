@@ -5,6 +5,7 @@
  */
 package dossier_ut_5_pro.ejercicios.listaEnlazada.ListaEnlazadaV2;
 
+import java.util.Objects;
 
 /**
  *
@@ -12,47 +13,74 @@ package dossier_ut_5_pro.ejercicios.listaEnlazada.ListaEnlazadaV2;
  */
 public class ListaEnlazada<T> {
 
-    private class Node<T> implements Ordenable<Node>{
+    private class Node<T> implements Ordenable<Node> {
+
         private T data;
         private Node next;
+        Comparable<T> comparable;
+
+        public Node(Comparable<T> comparable) {
+            this.comparable = comparable;
+        }
 
         @Override
-        public Integer compareTo(Node n) {
-            Integer ret=null;
-            if(n.data instanceof Integer){
-                ret = (Integer)this.data - (Integer)n.data;
+        public int compareTo(Node n) {
+            Integer ret;
+            if (n.data instanceof Integer) {
+                ret = (Integer) this.data - (Integer) n.data;
+            } else if (n.data instanceof String) {
+                ret = sortString((String) n.data);
+            } else if (n.data instanceof Double) {
+                double thisData = ((Double) (this.data));
+                double nData = ((Double) (n.data));
+                if (thisData == nData) {
+                    ret = 0;
+                } else if (thisData > nData) {
+                    ret = 1;
+                } else {
+                    ret = -1;
+                }
+            } else {
+                ret = comparable.compare(this.data, (T) n.data);
+
             }
             return ret;
         }
-        
-        /*private Integer sortString(String s, int pos){
-            Integer ret;
-            String actual = (String)this.data;
-            if(actual.length() <= s.length()){
-                if( actual.charAt(pos) - s.charAt(pos) < 0 
-                        || pos > actual.length()){
-                    ret =  actual.charAt(pos) - s.charAt(pos);
-                }else{
-                    ret = sortString(s, pos+1);
+
+        private int sortString(String string) {
+            int ret = 0;
+            String thisString = ((String) (this.data));
+            int i = 0;
+            boolean salir = false;
+            while (((i < string.length() && i < thisString.length() && !salir))) {
+                if (thisString.charAt(i) - string.charAt(i) != 0) {
+                    ret = thisString.charAt(i) - string.charAt(i);
+                    salir = true;
+                } else if (i + 1 < string.length() && i + 1 < thisString.length()) {
+                    ret = ((String) (this.data)).length() - string.length();
                 }
-            }else{
-                if( actual.charAt(pos) - s.charAt(pos) < 0 
-                        || pos > s.length()){
-                    ret =  actual.charAt(pos) - s.charAt(pos);
-                }else{
-                    ret = sortString(s, pos+1);
-                }
+                i++;
             }
             return ret;
-        }*/
-    }
+        }
 
+    }
+    Comparable<T> comparable;
     private Node head;
     private Integer size;
     private Integer actualPos;
 
     public ListaEnlazada() {
-        head = new Node<>();
+        this(null);
+    }
+
+    /**
+     *
+     * @param c
+     */
+    public ListaEnlazada(Comparable<T> c) {
+        comparable = c;
+        head = new Node<>(comparable);
         actualPos = 0;
         size = 0;
     }
@@ -84,11 +112,12 @@ public class ListaEnlazada<T> {
         }
         return ret;
     }
+
     public boolean add(T d) {
         boolean ret = false;
         if (head.data == null) {
             head.data = d;
-            head.next = new Node();
+            head.next = new Node(comparable);
             ret = true;
             size++;
         } else {
@@ -97,7 +126,7 @@ public class ListaEnlazada<T> {
                 it = it.next;
                 if (it.data == null) {
                     it.data = d;
-                    it.next = new Node();
+                    it.next = new Node(comparable);
                     ret = true;
                     size++;
                 }
@@ -109,7 +138,7 @@ public class ListaEnlazada<T> {
     public boolean addAll(Object[] d) {
         boolean ret = false;
         for (Object object : d) {
-            ret = add((T)object);
+            ret = add((T) object);
         }
         return ret;
     }
@@ -171,7 +200,7 @@ public class ListaEnlazada<T> {
             if (it.next != null) {
                 if (helper.equals(head)) {
                     if (head.compareTo(it) > 0) {
-                        Node n = new Node();
+                        Node n = new Node(comparable);
                         n.data = helper.data;
                         n.next = it.next;
                         head = it;
@@ -180,7 +209,7 @@ public class ListaEnlazada<T> {
                     }
                 } else {
                     if (helper.compareTo(it) > 0) {
-                        Node n = new Node();
+                        Node n = new Node(comparable);
                         n.data = helper.data;
                         n.next = it.next;
                         getNodeByPos(getPos(helper) - 1).next = it;
@@ -193,7 +222,7 @@ public class ListaEnlazada<T> {
         }
         return retorno;
     }
-    
+
     @SuppressWarnings("empty-statement")
     public void sort() {
         while (exchange());
@@ -204,14 +233,14 @@ public class ListaEnlazada<T> {
         Node it = head;
         int i = 0;
         while (it.next != null) {
-            ret[i] = it.data;
+            ret[i] = (T) it.data;
             i++;
             it = it.next;
         }
-        return (T[])ret;
+        return (T[]) ret;
     }
 
-    public T getStack() {
+    public T pull() {
         T ret = null;
         if (head.data != null) {
             ret = get(size() - 1);
@@ -241,7 +270,7 @@ public class ListaEnlazada<T> {
         T ret = null;
         while (it.next != null) {
             if (p == actualPos) {
-                ret = (T)it.data;
+                ret = (T) it.data;
             }
             actualPos++;
             it = it.next;
