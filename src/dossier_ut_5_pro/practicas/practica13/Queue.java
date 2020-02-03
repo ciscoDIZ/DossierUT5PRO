@@ -30,9 +30,7 @@ public class Queue {
                 }
                 i++;
             }
-
         }
-
         return ret;
     }
 
