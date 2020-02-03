@@ -14,9 +14,5 @@ import java.util.List;
  * el caso de la interfaz y el metodo por defecto).
  */
 public interface Ordenable<T> {
-    public Integer compareTo(T n);
-
-   
-    
-    
+    public int compareTo(T n); 
 }

@@ -26,8 +26,8 @@ public class ListaEnlazada<T> {
         }
 
         @Override
-        public Integer compareTo(Node n) throws NullPointerException {
-            Integer ret;
+        public int compareTo(Node n) throws NullPointerException {
+            int ret;
             if (n.data instanceof Integer) {
                 ret = (Integer) this.data - (Integer) n.data;
             } else if (n.data instanceof String) {
