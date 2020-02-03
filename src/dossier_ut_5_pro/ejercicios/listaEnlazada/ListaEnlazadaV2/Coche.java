@@ -5,18 +5,22 @@
  */
 package dossier_ut_5_pro.ejercicios.listaEnlazada.ListaEnlazadaV2;
 
-import java.util.List;
-
 /**
  *
  * @author tote
- * @param <T> representa la clase y la intancia a comparar (respectivamente en 
- * el caso de la interfaz y el metodo por defecto).
  */
-public interface Ordenable<T> {
-    public Integer compareTo(T n);
+public class Coche {
+    String matricula;
+    int potencia;
 
-   
-    
+    public Coche(String matricula, int potencia) {
+        this.matricula = matricula;
+        this.potencia = potencia;
+    }
+
+    @Override
+    public String toString() {
+        return matricula;
+    }
     
 }

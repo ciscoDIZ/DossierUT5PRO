@@ -10,5 +10,5 @@ package dossier_ut_5_pro.ejercicios.listaEnlazada.ListaEnlazadaV2;
  * @author tote
  */
 public interface Comparable<T> {
-    public int compare(T a, T b);
+    public int compare(T a, T b) throws NullPointerException;
 }

@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
 
         ListaEnlazada<Integer> le = new ListaEnlazada<>();
-        ListaEnlazada<Persona> le1 = new ListaEnlazada<>((a, b) -> a.edad - b.edad);
+        ListaEnlazada<Persona> le1 = new ListaEnlazada<>((a,b) -> a.edad - b.edad);
         ListaEnlazada<String> le2 = new ListaEnlazada<>();
         ListaEnlazada<Double> le3 = new ListaEnlazada<>();
         ListaEnlazada<Pair<String,Integer>> le4 = new ListaEnlazada<>((a, b)->a.getValue()-b.getValue());
@@ -84,6 +84,12 @@ public class Main {
         le1.sortedAdd(new Persona("Marquito", 25));
         System.out.println(le1.get(0).nombre);
 
+        ListaEnlazada<Coche> coches = new ListaEnlazada<>();
+        coches.sortedAdd(new Coche("aaaa",1000));
+        coches.sortedAdd(new Coche("bbbb",1600));
+        coches.sortedAdd(new Coche("cccc",2500));
+        coches.sortedAdd(new Coche("dddd",3000));
+        System.out.println(coches);
     }
 
 }

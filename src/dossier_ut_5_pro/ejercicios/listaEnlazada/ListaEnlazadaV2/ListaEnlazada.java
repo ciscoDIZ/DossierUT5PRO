@@ -5,14 +5,16 @@
  */
 package dossier_ut_5_pro.ejercicios.listaEnlazada.ListaEnlazadaV2;
 
-import java.util.Objects;
-
 /**
  *
  * @author tote
  */
 public class ListaEnlazada<T> {
-
+    /**
+     * 
+     * @param <T> 
+     * @version 1.0
+     */
     private class Node<T> implements Ordenable<Node> {
 
         private T data;
@@ -24,7 +26,7 @@ public class ListaEnlazada<T> {
         }
 
         @Override
-        public int compareTo(Node n) {
+        public Integer compareTo(Node n) throws NullPointerException {
             Integer ret;
             if (n.data instanceof Integer) {
                 ret = (Integer) this.data - (Integer) n.data;
@@ -40,8 +42,15 @@ public class ListaEnlazada<T> {
                 } else {
                     ret = -1;
                 }
+            } else if (n.data instanceof Persona && comparable == null) {
+                String nombre = ((Persona) (n.data)).nombre;
+                ret = sortString(nombre);
             } else {
-                ret = comparable.compare(this.data, (T) n.data);
+                if (comparable != null) {
+                    ret = comparable.compare(this.data, (T) n.data);
+                } else {
+                    throw new NullPointerException("ordenacion no disponible para este objeto");
+                }
 
             }
             return ret;
@@ -49,13 +58,19 @@ public class ListaEnlazada<T> {
 
         private int sortString(String string) {
             int ret = 0;
-            String thisString = ((String) (this.data));
+            String thisString;
+            if (this.data instanceof Persona) {
+                thisString = ((Persona) (this.data)).nombre;
+            } else {
+                thisString = ((String) (this.data));
+            }
+
             int i = 0;
-            boolean salir = false;
-            while (((i < string.length() && i < thisString.length() && !salir))) {
+            boolean exit = false;
+            while (((i < string.length() && i < thisString.length() && !exit))) {
                 if (thisString.charAt(i) - string.charAt(i) != 0) {
                     ret = thisString.charAt(i) - string.charAt(i);
-                    salir = true;
+                    exit = true;
                 } else if (i + 1 < string.length() && i + 1 < thisString.length()) {
                     ret = ((String) (this.data)).length() - string.length();
                 }
@@ -70,13 +85,16 @@ public class ListaEnlazada<T> {
     private Integer size;
     private Integer actualPos;
 
+    /**
+     * constructor que soporta las ordenaciones por defecto
+     */
     public ListaEnlazada() {
         this(null);
     }
 
     /**
-     *
-     * @param c
+     *constructor que soprta la ordenación de terceras clases
+     * @param c representa el criterio de ordenacion
      */
     public ListaEnlazada(Comparable<T> c) {
         comparable = c;
@@ -195,37 +213,45 @@ public class ListaEnlazada<T> {
         Node it = head;
         Node helper = it;
         boolean retorno = false;
-        while (it.next != null) {
-            it = it.next;
-            if (it.next != null) {
-                if (helper.equals(head)) {
-                    if (head.compareTo(it) > 0) {
-                        Node n = new Node(comparable);
-                        n.data = helper.data;
-                        n.next = it.next;
-                        head = it;
-                        head.next = n;
-                        retorno = true;
+        try {
+            while (it.next != null) {
+                it = it.next;
+                if (it.next != null) {
+                    if (helper.equals(head)) {
+                        if (head.compareTo(it) > 0) {
+                            Node n = new Node(comparable);
+                            n.data = helper.data;
+                            n.next = it.next;
+                            head = it;
+                            head.next = n;
+                            retorno = true;
+                        }
+                    } else {
+                        if (helper.compareTo(it) > 0) {
+                            Node n = new Node(comparable);
+                            n.data = helper.data;
+                            n.next = it.next;
+                            getNodeByPos(getPos(helper) - 1).next = it;
+                            it.next = n;
+                            retorno = true;
+                        }
                     }
-                } else {
-                    if (helper.compareTo(it) > 0) {
-                        Node n = new Node(comparable);
-                        n.data = helper.data;
-                        n.next = it.next;
-                        getNodeByPos(getPos(helper) - 1).next = it;
-                        it.next = n;
-                        retorno = true;
-                    }
+                    helper = helper.next;
                 }
-                helper = helper.next;
+
             }
+        } catch (NullPointerException e) {
+            
         }
+
         return retorno;
     }
 
     @SuppressWarnings("empty-statement")
     public void sort() {
+
         while (exchange());
+
     }
 
     public T[] toArray() {
