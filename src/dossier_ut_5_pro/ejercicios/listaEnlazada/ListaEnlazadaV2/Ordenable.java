@@ -13,6 +13,8 @@ import java.util.List;
  * @param <T> representa la clase y la intancia a comparar (respectivamente en 
  * el caso de la interfaz y el metodo por defecto).
  */
+
 public interface Ordenable<T> {
     public int compareTo(T n); 
+    
 }

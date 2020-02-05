@@ -10,18 +10,20 @@ package dossier_ut_5_pro.ejercicios.listaEnlazada.ListaEnlazadaV2;
  * @author tote
  */
 public class ListaEnlazada<T> {
+
     /**
-     * 
-     * @param <T> 
+     *
+     * @param <T>
      * @version 1.0
      */
     private class Node<T> implements Ordenable<Node> {
 
-        private T data;
-        private Node next;
+        T data;
+        Node next;
         Comparable<T> comparable;
+        
 
-        public Node(Comparable<T> comparable) {
+        Node(Comparable<T> comparable) {
             this.comparable = comparable;
         }
 
@@ -84,7 +86,7 @@ public class ListaEnlazada<T> {
     private Node head;
     private Integer size;
     private Integer actualPos;
-
+    private boolean order;
     /**
      * constructor que soporta las ordenaciones por defecto
      */
@@ -93,7 +95,8 @@ public class ListaEnlazada<T> {
     }
 
     /**
-     *constructor que soprta la ordenación de terceras clases
+     * constructor que soprta la ordenación de terceras clases
+     *
      * @param c representa el criterio de ordenacion
      */
     public ListaEnlazada(Comparable<T> c) {
@@ -241,7 +244,7 @@ public class ListaEnlazada<T> {
 
             }
         } catch (NullPointerException e) {
-            
+
         }
 
         return retorno;
