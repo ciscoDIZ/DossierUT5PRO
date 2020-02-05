@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dossier_ut_5_pro.ejercicios.listaEnlazada;
+package dossier_ut_5_pro.ejercicios.listaEnlazada.ListaEnlazadaV2;
 
-import java.util.Random;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,7 +12,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author tote
+ * @author Francisco A Domínguez Iceta <toteskuu@gmail.com>
  */
 public class ListaEnlazadaTest {
     
@@ -27,30 +26,20 @@ public class ListaEnlazadaTest {
     @After
     public void tearDown() {
     }
-    public Integer[] contArray(int l){
-        Integer[] ret = new Integer[l];
-        Random rnd = new Random();
-        for (int i = 0; i < ret.length; i++) {
-            ret[i] = rnd.nextInt(10);
-            
-        }
-        return ret;
-    }
+
     /**
      * Test of sortedAdd method, of class ListaEnlazada.
      */
     @Test
     public void testSortedAdd() {
         System.out.println("sortedAdd");
-        int d = 0;
+        Object d = null;
         ListaEnlazada instance = new ListaEnlazada();
-        boolean expResult = true;
-        instance.addAll(contArray(10));
+        boolean expResult = false;
         boolean result = instance.sortedAdd(d);
-        System.out.println(result);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -59,16 +48,13 @@ public class ListaEnlazadaTest {
     @Test
     public void testUniqueAdd() {
         System.out.println("uniqueAdd");
-        Integer d = 2;
-        Integer[] array = {1,8,9,4,5,6};
+        Object d = null;
         ListaEnlazada instance = new ListaEnlazada();
-        instance.addAll(array);
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = instance.uniqueAdd(d);
-        System.out.println(result);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -78,11 +64,11 @@ public class ListaEnlazadaTest {
     public void testSize() {
         System.out.println("size");
         ListaEnlazada instance = new ListaEnlazada();
-        instance.addAll(contArray(10));
-        int expResult = 10;
+        int expResult = 0;
         int result = instance.size();
         assertEquals(expResult, result);
-        System.out.println(result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -91,14 +77,13 @@ public class ListaEnlazadaTest {
     @Test
     public void testUniqueSortedAdd() {
         System.out.println("uniqueSortedAdd");
-        Integer d = 2;
-        Integer[] array = {1,8,9,4,5,6};
+        Object d = null;
         ListaEnlazada instance = new ListaEnlazada();
-        instance.addAll(array);
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = instance.uniqueSortedAdd(d);
         assertEquals(expResult, result);
-        System.out.println(result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -107,12 +92,13 @@ public class ListaEnlazadaTest {
     @Test
     public void testAdd() {
         System.out.println("add");
-        Integer d = 2;
+        Object d = null;
         ListaEnlazada instance = new ListaEnlazada();
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = instance.add(d);
         assertEquals(expResult, result);
-        System.out.println(result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -121,12 +107,13 @@ public class ListaEnlazadaTest {
     @Test
     public void testAddAll() {
         System.out.println("addAll");
-        Integer[] d = contArray(10);
+        Object[] d = null;
         ListaEnlazada instance = new ListaEnlazada();
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = instance.addAll(d);
         assertEquals(expResult, result);
-        System.out.println(result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -135,13 +122,13 @@ public class ListaEnlazadaTest {
     @Test
     public void testContains() {
         System.out.println("contains");
-        Integer d = 2;
+        Object d = null;
         ListaEnlazada instance = new ListaEnlazada();
-        instance.add(d);
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = instance.contains(d);
         assertEquals(expResult, result);
-        System.out.println(result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -150,33 +137,28 @@ public class ListaEnlazadaTest {
     @Test
     public void testRemove() {
         System.out.println("remove");
-        Integer d = 2;
+        Object d = null;
         ListaEnlazada instance = new ListaEnlazada();
-        boolean expResult = true;
-        instance.add(2);
+        boolean expResult = false;
         boolean result = instance.remove(d);
         assertEquals(expResult, result);
-        System.out.println(result);
-        
-        
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
      * Test of removeAll method, of class ListaEnlazada.
      */
     @Test
-    public void testRemoveAll_Integer() {
+    public void testRemoveAll_GenericType() {
         System.out.println("removeAll");
-        Integer d = 2;
+        Object d = null;
         ListaEnlazada instance = new ListaEnlazada();
-        instance.addAll(contArray(10));
-        instance.add(2);
-        instance.add(2);
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = instance.removeAll(d);
         assertEquals(expResult, result);
-        System.out.println(result);
-        
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -186,12 +168,9 @@ public class ListaEnlazadaTest {
     public void testRemoveAll_0args() {
         System.out.println("removeAll");
         ListaEnlazada instance = new ListaEnlazada();
-        instance.addAll(contArray(10));
         instance.removeAll();
-        boolean expResult = false;
-        boolean result = instance.next();
-        assertEquals(expResult, result);
-        System.out.println(result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -201,22 +180,9 @@ public class ListaEnlazadaTest {
     public void testSort() {
         System.out.println("sort");
         ListaEnlazada instance = new ListaEnlazada();
-        instance.addAll(contArray(5));
         instance.sort();
-        boolean expResult = true;
-        boolean resulut = true;
-        Integer[] array = instance.toArray();
-        for (int i = 0; i < array.length && resulut; i++) {
-            for (int j = i; j < array.length && resulut; j++) {
-                Integer integer = array[j];
-                if(array[i]> integer){
-                    resulut = false;
-                }
-            }
-            
-        }
-        instance.mostrar();
-        assertEquals(expResult, resulut);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -226,25 +192,25 @@ public class ListaEnlazadaTest {
     public void testToArray() {
         System.out.println("toArray");
         ListaEnlazada instance = new ListaEnlazada();
-        Integer[] expResult = contArray(10);
-        instance.addAll(expResult);
-        Integer[] result = instance.toArray();
+        Object[] expResult = null;
+        Object[] result = instance.toArray();
         assertArrayEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getStack method, of class ListaEnlazada.
+     * Test of pull method, of class ListaEnlazada.
      */
     @Test
-    public void testGetStack() {
-        System.out.println("getStack");
+    public void testPull() {
+        System.out.println("pull");
         ListaEnlazada instance = new ListaEnlazada();
-        instance.add(10);
-        instance.add(8);
-        instance.add(2);
-        Integer expResult = 2;
-        Integer result = instance.getStack();
+        Object expResult = null;
+        Object result = instance.pull();
         assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -254,10 +220,11 @@ public class ListaEnlazadaTest {
     public void testNext() {
         System.out.println("next");
         ListaEnlazada instance = new ListaEnlazada();
-        instance.add(2);
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = instance.next();
         assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -267,8 +234,9 @@ public class ListaEnlazadaTest {
     public void testMostrar() {
         System.out.println("mostrar");
         ListaEnlazada instance = new ListaEnlazada();
-        instance.addAll(contArray(10));
-        instance.mostrar(); 
+        instance.mostrar();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -279,10 +247,11 @@ public class ListaEnlazadaTest {
         System.out.println("get");
         int p = 0;
         ListaEnlazada instance = new ListaEnlazada();
-        instance.add(0);
-        Integer expResult = 0;
-        Integer result = instance.get(p);
+        Object expResult = null;
+        Object result = instance.get(p);
         assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -292,12 +261,11 @@ public class ListaEnlazadaTest {
     public void testToString() {
         System.out.println("toString");
         ListaEnlazada instance = new ListaEnlazada();
-        instance.add(1);
-        instance.add(2);
-        instance.add(3);
-        String expResult = "1 2 3 ";
+        String expResult = "";
         String result = instance.toString();
         assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
     
 }
