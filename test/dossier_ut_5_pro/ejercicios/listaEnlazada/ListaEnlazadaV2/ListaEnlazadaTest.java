@@ -5,15 +5,23 @@
  */
 package dossier_ut_5_pro.ejercicios.listaEnlazada.ListaEnlazadaV2;
 
+import java.util.Arrays;
+import java.util.Collection;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 /**
- *
+ *CLASE DE PRUEBAS PARAMETIZADAS
+ * primero añadimos la etiqueta @RunWith(Parameterized.class)
+ * un atributo para cada parametro y un costructor para inicializar cada parametro
  * @author Francisco A Domínguez Iceta <toteskuu@gmail.com>
  */
+@RunWith(Parameterized.class)
 public class ListaEnlazadaTest {
     
     public ListaEnlazadaTest() {
@@ -56,8 +64,22 @@ public class ListaEnlazadaTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
     /**
+     * Definir metodo con etiqueta @Parameters 
+     * @param array los datos recividos a probar
+     * @return devuelve una lista de valores 
+     * a probar
+     */
+    
+    @Parameters
+    public static Collection<Object[]> data(){
+        Object[][] objetosArray = new Object[][]{};
+        return Arrays.asList(objetosArray);
+    }
+    
+    
+    /**
+     
      * Test of size method, of class ListaEnlazada.
      */
     @Test
